@@ -1,0 +1,29 @@
+import math
+
+result = list(map(int,[1.1,1.2,3.3,4.4,5.5]))
+print(f'map(int, 리스트): {result}')
+
+def func_pow(x):
+    return pow(x,5)
+
+result2 = list(map(func_pow,[1,2,3,4,5]))
+print(f'map(func_pow, 리스트): {result2}')
+
+result3 = list(map(math.ceil,[1.1,2.2,3.3,4.4,5.5,6.6]))
+print(f'map(func_ceil, 리스트): {result3}')
+
+# list (함수/형 , 리스트)
+##응용
+
+def ceil_func(x):
+    return math.ceil(x)
+
+
+family_weight = list(map(ceil_func,[16.4,18.3,97.9,53.7]))
+print(f'우리집 식구들의 몸무게:{family_weight}')
+
+margin = list(map(lambda x:math.ceil(x*2),[2345,5645,8798,1321]))
+print(f"마진 계산 : {margin}" )
+
+profit = list(map(lambda x:math.ceil(x-x/2),[78955,4654,3247,89875]))
+print(f"이익 계산 : {profit}")
