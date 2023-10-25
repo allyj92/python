@@ -706,4 +706,32 @@
 #     print("주민등록번호의 일자 형식이 올바르지 않습니다.")
        
         
-        
+def isbn_check(isbn):
+    s = 0
+    for i in range(0, 12):
+        if (i + 1) % 2 == 1:
+            s = s + int(isbn[i]) * 1
+        else:
+            s = s + int(isbn[i]) * 3
+    t = s % 10
+    chk = (10 - t) % 10
+    print(f"USBN 1~12 digit check mark value: {chk}")
+
+    if chk == int(isbn[12]):
+        rst = 1
+    else:
+        rst = 0
+    return rst
+
+isbn = input("ISBN 13 자리 숫자 (하이픈 제외): ")
+print(f"ISBN 합계: {isbn}")
+
+if len(isbn) == 13:
+    rst = isbn_check(isbn)
+    if rst == 1:
+        print("검증되었습니다.")
+    else:
+        print("검증되지 않았습니다.")
+else:
+    print("ISBN 코드를 입력할 때 하이픈을 제외한 13 자리를 입력하세요.")
+  
